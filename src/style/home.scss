@@ -1,0 +1,33 @@
+html, body {
+    margin: 0px;
+    padding: 0px;
+    font-family: 'sans-serif';
+}
+.head {
+    background: $head-bg;
+    padding: 10px;
+    ul {
+        list-style: none;
+        a {
+            color: #fff;
+            text-decoration: none;
+            font-size: $menu-font-size;
+        }
+    }
+}
+main {
+    box-sizing: border-box;
+    padding: 40px;
+}
+#boards {
+    display: flex;
+    justify-content: center;
+    .create-board, .board {
+        width: 25%;
+        margin: 10px;
+    }
+    .create-board {
+        position: relative;
+        overflow: visible;
+    }
+}
