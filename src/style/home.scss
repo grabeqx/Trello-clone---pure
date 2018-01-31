@@ -1,15 +1,17 @@
 html, body {
     margin: 0px;
     padding: 0px;
-    font-family: 'sans-serif';
+    font-family: 'roboto';
+    min-height: 100vh;
+    background: $body-bg;
 }
 .head {
     background: $head-bg;
-    padding: 10px;
+    padding: 10px 20px;
     ul {
         list-style: none;
         a {
-            color: #fff;
+            color: $link-color;
             text-decoration: none;
             font-size: $menu-font-size;
         }
@@ -21,13 +23,94 @@ main {
 }
 #boards {
     display: flex;
-    justify-content: center;
+    flex-wrap: wrap;
     .create-board, .board {
-        width: 25%;
+        width: calc(25% - 20px);
         margin: 10px;
+        height: $board-height;
+        outline: none;
+        transition: all .2s ease-in-out;
+        cursor: pointer;
+    }
+    .board {
+        background: #fdfdfd;
+        color: #000;
+        font-size: 20px;
+        border: none;
+        box-shadow: $box-shadow-normal;
     }
     .create-board {
         position: relative;
         overflow: visible;
+        .create-btn {
+            width: 100%;
+            display: block;
+            height: $board-height;
+            background: $create-card-bg;
+            color: #000;
+            font-size: 20px;
+            border: none;
+            box-shadow: $box-shadow-normal;
+            cursor: pointer;
+            outline: none;
+            transition: all .2s ease-in-out;
+        }
+        .creation-content {
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            display: none;
+            background: $create-card-bg;
+            box-shadow: $box-shadow-intensive;
+            width: 100%;
+            box-sizing: border-box;
+            padding: 10px;
+            h2 {
+                margin: 0px;
+                padding: 10px 0px;
+                font-size: 18px;
+                font-weight: 600;
+                text-transform: uppercase;
+                a {
+                    text-decoration: none;
+                    color: #000;
+                    float: right;
+                    font-size: 14px;
+                }
+            }
+        }
+        &.add {
+            .create-btn {
+                box-shadow: none;
+            }
+            .creation-content {
+                display: block;
+            }
+        }
+    }
+}
+#create-board-form {
+    overflow: hidden;
+    label {
+        width: 100%;
+        display: block;
+        text-align: center;
+        margin: 10px 0px;
+    }
+    input[type='text'] {
+        display: block;
+        width: 80%;
+        padding: 10px;
+        border: 1px solid #e6e6e6;
+        margin: 5px auto 10px;
+        font-size: 13px;
+    }
+    input[type='submit'] {
+        float: right;
+        border: none;
+        padding: 5px 10px;
+        font-size: 14px;
+        background: #676767;
+        color: #fff;
     }
 }
