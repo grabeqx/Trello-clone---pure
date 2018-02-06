@@ -8,6 +8,7 @@ html, body {
 .head {
     background: $head-bg;
     padding: 10px 20px;
+    box-shadow: 0px -3px 17px 0px black;
     ul {
         list-style: none;
         a {
@@ -24,20 +25,20 @@ main {
 #boards {
     display: flex;
     flex-wrap: wrap;
-    .create-board, .board {
+    .create-board, & > .board {
         width: calc(25% - 20px);
         margin: 10px;
         height: $board-height;
-        outline: none;
         transition: all .2s ease-in-out;
-        cursor: pointer;
     }
     .board {
-        background: #fdfdfd;
-        color: #000;
+        background: $board-btn-bg;
+        color: black;
         font-size: 20px;
         border: none;
+        outline: none;
         box-shadow: $box-shadow-normal;
+        cursor: pointer;
     }
     .create-board {
         position: relative;
@@ -47,13 +48,7 @@ main {
             display: block;
             height: $board-height;
             background: $create-card-bg;
-            color: #000;
-            font-size: 20px;
-            border: none;
-            box-shadow: $box-shadow-normal;
-            cursor: pointer;
-            outline: none;
-            transition: all .2s ease-in-out;
+            color: black;
         }
         .creation-content {
             position: absolute;
@@ -65,17 +60,24 @@ main {
             width: 100%;
             box-sizing: border-box;
             padding: 10px;
-            h2 {
-                margin: 0px;
-                padding: 10px 0px;
-                font-size: 18px;
-                font-weight: 600;
-                text-transform: uppercase;
+            .add-board-header {
+                display: flex;
+                justify-content: space-between;
+                h2 {
+                    margin: 0px;
+                    padding: 10px 0px;
+                    font-size: 18px;
+                    font-weight: 600;
+                    text-transform: uppercase;
+                }
                 a {
                     text-decoration: none;
-                    color: #000;
+                    color: black;
                     float: right;
                     font-size: 14px;
+                    display: block;
+                    line-height: normal;
+                    margin-top: 10px;
                 }
             }
         }
@@ -101,7 +103,7 @@ main {
         display: block;
         width: 80%;
         padding: 10px;
-        border: 1px solid #e6e6e6;
+        border: 1px solid $boradr-color;
         margin: 5px auto 10px;
         font-size: 13px;
     }
@@ -110,7 +112,7 @@ main {
         border: none;
         padding: 5px 10px;
         font-size: 14px;
-        background: #676767;
-        color: #fff;
+        background: $action-btn-bg;
+        color: white;
     }
 }
