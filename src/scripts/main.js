@@ -1,18 +1,51 @@
 class Main {
-    constructor (root) {
+    /**
+     * Creates an instance of Main.
+     * @param {any} root 
+     * @memberof Main
+     */
+    constructor(root) {
         this.root = root;
     }
-    addDomEvents () {
+
+    /**
+     * Create new DOM events
+     * 
+     * @memberof Main
+     */
+    addDOMevents() {
         U('.create-btn').click(() => {
             this.openAddWindow();
         });
     }
-    openAddWindow () {
-        U('.create-btn').addClass('add');
+
+    /**
+     * Function show create window
+     * 
+     * @memberof Main
+     */
+    openAddWindow() {
+        U('.create-board').addClass('add');
+        this.menageCreatingWindow();
+    }
+    
+    menageCreatingWindow() {
+        let creationContent = U('.creation-content'),
+            cencelBtn = U('.creation-content .cencel');
+
+        cencelBtn.click((e) => {
+            e.preventDefault();
+            U('.create-board').removeClass('add');
+        })
     }
 
+    /**
+     * Initialize app
+     * 
+     * @memberof Main
+     */
     init() {
-        this.addDomEvents();
+        this.addDOMevents();
     }
 }
 
@@ -20,9 +53,8 @@ class Main {
 // Start
 (function () {
     window.addEventListener('DOMContentLoaded', function() {
-        let root = document.querySelector('#root');
-        let main = new Main(root);
+        var root = document.querySelector('#root');
+        var main = new Main(root);
         main.init();
     }, false);
 })();
-
